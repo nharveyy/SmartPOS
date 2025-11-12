@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="oop.licao.smartpos.controller.AddProductController">
+
+    <top>
+        <Label text="Add / Edit Product" style="-fx-font-size: 20; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Product Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Price (₱):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="priceField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Stock:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="stockField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Category:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <HBox spacing="10" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                <ComboBox fx:id="categoryCombo" prefWidth="200"/>
+                <Button text="➕ New" onAction="#handleNewCategory"/>
+            </HBox>
+
+            <Label text="Description:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextArea fx:id="descriptionArea" prefRowCount="3" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Image:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <HBox spacing="10" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                <Button text="Choose Image" onAction="#handleChooseImage"/>
+                <Label fx:id="imageLabel" text="(No image)"/>
+            </HBox>
+
+            <ImageView fx:id="imageView" fitWidth="120" fitHeight="120" preserveRatio="true"
+                       GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <VBox spacing="10" alignment="CENTER">
+            <ButtonBar>
+                <buttons>
+                    <Button text="💾 Save Product" onAction="#handleSave"/>
+                    <Button text="❌ Cancel" onAction="#handleCancel"/>
+                    <Button text="📋 View All Products" onAction="#handleViewProducts"/>
+                    <Button text="🚪 Logout" onAction="#handleLogout"/>
+                </buttons>
+            </ButtonBar>
+        </VBox>
+    </bottom>
+</BorderPane>

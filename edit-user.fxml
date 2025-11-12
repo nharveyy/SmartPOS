@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="oop.licao.smartpos.controller.EditUserController"
+      spacing="10" alignment="CENTER"
+      style="-fx-padding: 20; -fx-background-color: #ecf0f1;">
+
+    <Label text="Edit User" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="firstNameField" promptText="First Name" prefWidth="250"/>
+    <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="250"/>
+    <TextField fx:id="emailField" promptText="Email" prefWidth="250" editable="false"/>
+    <PasswordField fx:id="passwordField" promptText="New Password" prefWidth="250"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Save" onAction="#handleSave"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Cancel" onAction="#handleCancel"
+                style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

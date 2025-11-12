@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="oop.licao.smartpos.controller.AdminController">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="20" alignment="TOP_CENTER" prefWidth="220"
+              style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <children>
+                <Label text="SmartPOS Admin"
+                       style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                <Separator/>
+                <Button text="🏠 Dashboard" onAction="#showDashboard"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+                <Button text="👥 Users" onAction="#showUsers"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+                <Button text="📦 Products" onAction="#openProducts"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+                <Button text="📈 Reports" onAction="#showReports"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+                <Button text="⚙ Admin Menu" onAction="#showAdminMenu"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+                <Separator/>
+                <Button text="🚪 Logout" onAction="#handleLogout"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;"/>
+            </children>
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true"
+                    style="-fx-background-color: #ecf0f1;">
+            <StackPane fx:id="mainContent"
+                       style="-fx-padding: 30; -fx-background-color: #ecf0f1;"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

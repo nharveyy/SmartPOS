@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="oop.licao.smartpos.controller.CheckoutController">
+
+    <!-- 🧭 STYLED HEADER BAR -->
+    <top>
+        <HBox spacing="15" alignment="CENTER_LEFT"
+              style="-fx-background-color: #2c3e50; -fx-padding: 10;">
+            <children>
+                <Label text="SmartPOS"
+                       style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="🏠 Home"
+                        onAction="#handleBackToShop"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+                <Button text="⟵ Back to Cart"
+                        onAction="#handleBackToCart"
+                        style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
+                <Button text="🚪 Logout"
+                        onAction="#handleLogout"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- 💰 CHECKOUT BODY -->
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 20;">
+            <children>
+                <Label text="Checkout Summary"
+                       style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+                <TableView fx:id="cartTable" prefHeight="300" prefWidth="700">
+                    <columns>
+                        <TableColumn fx:id="productCol" text="Product" prefWidth="250"/>
+                        <TableColumn fx:id="qtyCol" text="Qty" prefWidth="80"/>
+                        <TableColumn fx:id="subtotalCol" text="Subtotal" prefWidth="120"/>
+                        <TableColumn fx:id="actionCol" text="Actions" prefWidth="150"/>
+
+                    </columns>
+                </TableView>
+
+                <HBox spacing="15" alignment="CENTER">
+                    <children>
+                        <Label text="Payment Method:"/>
+                        <ComboBox fx:id="paymentCombo" prefWidth="200"/>
+                    </children>
+                </HBox>
+
+                <Label fx:id="totalLabel" text="Total: ₱0.00"
+                       style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <children>
+                        <Button text="Confirm Payment"
+                                onAction="#handleConfirm"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+                        <Button text="Cancel"
+                                onAction="#handleCancel"
+                                style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

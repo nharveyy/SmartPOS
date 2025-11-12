@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="oop.licao.smartpos.controller.ProductManagerController">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="20" alignment="TOP_CENTER" prefWidth="220"
+              style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <children>
+                <Label text="SmartPOS Admin"
+                       style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                <Separator/>
+                <Button text="🏠 Dashboard" onAction="#handleBackToDashboard"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+                <Button text="🚪 Logout" onAction="#handleLogout"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;"/>
+            </children>
+        </VBox>
+    </left>
+
+    <!-- Main Tab Area -->
+    <center>
+        <TabPane fx:id="tabPane" style="-fx-background-color: #ecf0f1; -fx-tab-min-width: 120;">
+
+            <!-- View Products Tab -->
+            <Tab text="📋 View Products" closable="false">
+                <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+                    <Label text="Product List" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                    <TableView fx:id="productTable" prefHeight="400" prefWidth="900">
+                        <columns>
+                            <TableColumn fx:id="imageColumn" text="Image" prefWidth="120"/>
+                            <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
+                            <TableColumn fx:id="priceColumn" text="Price" prefWidth="100"/>
+                            <TableColumn fx:id="stockColumn" text="Stock" prefWidth="80"/>
+                            <!-- ✅ Hidden column to preserve controller compatibility -->
+                            <TableColumn fx:id="categoryColumn" text="Category" prefWidth="150" visible="false"/>
+                            <TableColumn fx:id="descColumn" text="Description" prefWidth="450"/>
+                        </columns>
+                    </TableView>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Refresh" onAction="#handleRefresh"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                        <Button text="Delete Selected" onAction="#handleDeleteProduct"
+                                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+            <!-- Add Product Tab -->
+            <Tab text="➕ Add Product" closable="false">
+                <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+                    <Label text="Add New Product"
+                           style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+                    <TextField fx:id="addNameField" promptText="Product Name" prefWidth="300"/>
+                    <TextField fx:id="addPriceField" promptText="Price" prefWidth="300"/>
+                    <TextField fx:id="addStockField" promptText="Stock" prefWidth="300"/>
+                    <TextArea fx:id="addDescArea" promptText="Description" prefWidth="300" prefHeight="80"/>
+
+                    <Button text="Choose Image" onAction="#handleChooseAddImage"/>
+                    <Label fx:id="addImageLabel" text="(No image selected)"/>
+                    <Button text="Save Product" onAction="#handleAddProduct"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 8;"/>
+                </VBox>
+            </Tab>
+
+            <!-- Edit Product Tab -->
+            <Tab text="✏️ Edit Product" closable="false">
+                <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+                    <Label text="Edit Existing Product"
+                           style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+                    <ComboBox fx:id="editProductCombo" prefWidth="300" promptText="Select Product"/>
+                    <TextField fx:id="editNameField" promptText="Product Name" prefWidth="300"/>
+                    <TextField fx:id="editPriceField" promptText="Price" prefWidth="300"/>
+                    <TextField fx:id="editStockField" promptText="Stock" prefWidth="300"/>
+                    <TextArea fx:id="editDescArea" promptText="Description" prefWidth="300" prefHeight="80"/>
+
+                    <Button text="Change Image" onAction="#handleChooseEditImage"/>
+                    <Label fx:id="editImageLabel" text="(No image selected)"/>
+                    <Button text="Update Product" onAction="#handleUpdateProduct"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8;"/>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>

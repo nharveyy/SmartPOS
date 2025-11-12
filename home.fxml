@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="oop.licao.smartpos.controller.CustomerHomeController">
+
+    <!-- 🧭 STYLED HEADER BAR -->
+    <top>
+        <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
+            <children>
+                <Label text="SmartPOS"
+                       style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="🛒 Cart"
+                        onAction="#handleViewCart"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+                <Button text="🚪 Logout"
+                        onAction="#handleLogout"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- 🏬 MAIN SHOP LAYOUT -->
+    <center>
+        <VBox spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20;">
+            <children>
+                <Label text="Welcome to SmartPOS Store"
+                       style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <children>
+                        <Label text="Category:"/>
+                        <ComboBox fx:id="categoryCombo" prefWidth="200"/>
+                        <Button text="Show All" onAction="#handleShowAll"/>
+                        <Label fx:id="cartItemCount" text="Cart: 0 item(s)"
+                               style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+                    </children>
+                </HBox>
+
+                <ScrollPane fitToWidth="true" prefHeight="550" prefWidth="1000">
+                    <content>
+                        <FlowPane fx:id="productFlowPane" hgap="10" vgap="10"
+                                  style="-fx-padding: 10; -fx-background-color: #ecf0f1;"/>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+
+</BorderPane>

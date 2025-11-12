@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="oop.licao.smartpos.controller.ProductListController"
+      spacing="15" alignment="CENTER"
+      style="-fx-padding: 20; -fx-background-color: #ecf0f1;">
+
+    <!-- Title -->
+    <Label text="📋 Product List"
+           style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+    <!-- Product Table -->
+    <TableView fx:id="productTable" prefWidth="900" prefHeight="450">
+        <columns>
+            <TableColumn fx:id="imageColumn" text="Image" prefWidth="120"/>
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="180"/>
+            <TableColumn fx:id="categoryColumn" text="Category" prefWidth="140"/>
+            <TableColumn fx:id="priceColumn" text="Price (₱)" prefWidth="120"/>
+            <TableColumn fx:id="stockColumn" text="Stock" prefWidth="100"/>
+            <TableColumn fx:id="descColumn" text="Description" prefWidth="240"/>
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons -->
+    <HBox spacing="12" alignment="CENTER">
+        <Button text="🔄 Refresh"
+                onAction="#handleRefresh"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 6;"/>
+
+        <Button text="✏️ Edit Selected"
+                onAction="#handleEditProduct"
+                style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 6;"/>
+
+        <Button text="🗑 Delete Selected"
+                onAction="#handleDeleteProduct"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 6;"/>
+
+        <Button text="⬅ Back"
+                onAction="#handleBack"
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 6;"/>
+    </HBox>
+</VBox>
